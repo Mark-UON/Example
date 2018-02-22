@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "Web Content Reviewer",
+  "description": "An extension for accessing reviews of web content.",
+  "version": "1.0",
+  "content_security_policy":"script-src 'self' 'unsafe-eval'  https://www.google.com/uds/api/search/1.0/581c068e7ad56cae00e4e2e8f7dc3837/default+en.I.js https://www.google.com/uds/api/search/1.0/581c068e7ad56cae00e4e2e8f7dc3837/default+en.I.js https://cse.google.com/cse.js?cx=017278011511779319034:nkm5j_-ge3g https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22search%22%2C%22version%22%3A%221.0%22%2C%22callback%22%3A%22__gcse.scb%22%2C%22style%22%3A%22https%3A%2F%2Fwww.google.com%2Fcse%2Fstatic%2Fstyle%2Flook%2Fv2%2Fdefault.css%22%2C%22language%22%3A%22en%22%7D%5D%7D; object-src 'self'",
+
+  "browser_action": {
+    "default_icon": "QC image.png",
+    "default_popup": "login.html",
+	"default_title": "Reviewer"
+  },
+  "background": {
+    "scripts": ["reviews.js", "loginCheck.js"]
+  },
+  "permissions": [
+    "http://localhost/db1/getReviews.php",
+    "http://127.0.0.1/db1/getReviews.php",
+    "http://localhost/db1/loginCheck.php",
+    "http://127.0.0.1/db1/loginCheck.php",
+    "http://localhost/db1/vote.php",
+    "http://127.0.0.1/db1/vote.php",
+    "http://localhost/db1/getRating.php",
+    "http://127.0.0.1/db1/getRating.php",
+    "https://cse.google.com/cse.js?cx=017278011511779319034:nkm5j_-ge3g",
+    "tabs",
+    "storage",
+    "*://*/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["siteInfo.js", "loginCheck.js"]
+    }
+  ]
+
+}

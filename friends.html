@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html>
+  <head>
+    <!-- Allow Bootstrap CSS features -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <title>Web Content Reviewer</title>
+    <!-- Create a specifically sized box for login screen boundary -->
+    <style>
+    .baseTemplate {
+      width:290px;
+      height: 400px;
+      text-align: center;
+    }
+
+    /* The navBar code was influenced and created following: https://www.w3schools.com/css/css_navbar.asp */
+    ul.navBar {
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      background-color: #505359;
+    }
+
+    ul.navBar li {
+      display: inline-block;
+    }
+
+    ul.navBar li a {
+      color: white;
+      display: inline-block;
+      padding: 15px 10px 10px 5px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    ul.navBar li a:hover {
+      color: #b7b9bc;
+    }
+    /* The navBar code was influenced and created following: https://www.w3schools.com/css/css_navbar.asp */
+    </style>
+</head>
+
+<body>
+  <!-- Loading of JS file that handles button listeners/communication with server -->
+  <script type="text/javascript" src= "friendsSearch.js"></script>
+
+  <!-- Main div that holds all the tab's content -->
+  <div class="baseTemplate">
+
+    <!-- Navigation bar used to travel between tabs -->
+    <ul class="navBar">
+      <li><a href="siteInfo.html">Site Data</a></li>
+      <li><a href="addReview.html">Add Review</a></li>
+      <li><a href="friends.html">Friends</a></li>
+    </ul>
+
+    <!-- Search bar for user reviews. Reference: https://www.w3schools.com/html/html_forms.asp -->
+    <form id="searchForm">
+      <p></p>
+      Search for user:
+      <input type="text" name="usernameSearch" id="usernameSearch">
+        <!-- Search button to look for reviews from specific user -->
+        <p></p>
+      <input type="button" id="searchButton" name="searchButton" value="search">
+    </form>
+    <p></p>
+    <p id="searchedReviews"></p>
+  </div>
+</body>
+</html>

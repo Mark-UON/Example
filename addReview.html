@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <!-- Allow Bootstrap CSS features -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <title>Web Content Reviewer</title>
+    <style>
+  	  .baseTemplate {
+    		width:290px;
+    		height: 400px;
+  	  }
+
+      /* The navBar code was influenced and created following: https://www.w3schools.com/css/css_navbar.asp */
+      ul.navBar {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        background-color: #505359;
+      }
+
+      ul.navBar li {
+        display: inline-block;
+      }
+
+      ul.navBar li a {
+        color: white;
+        display: inline-block;
+        padding: 15px 10px 10px 5px;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      ul.navBar li a:hover {
+        color: #b7b9bc;
+      }
+      /* The navBar code was influenced and created following: https://www.w3schools.com/css/css_navbar.asp */
+
+      .currentSite {
+        font-size: 11px;
+        height: 50px;
+      }
+
+      .rating {
+    		margin-left: 50px;
+    		height: 50px;
+    	}
+
+      .starRating {
+  	     text-align: center;
+         height: 50px;
+  	  }
+  </style>
+
+  </head>
+  <!-- Loading of JS file that handles button listeners/communication with server -->
+  <script type="text/javascript" src= "siteInfo.js"></script>
+  <body>
+    <!-- Main div that holds all the tab's content -->
+    <div class="baseTemplate">
+
+      <!-- Navigation bar used to travel between tabs -->
+      <ul class="navBar">
+        <li><a href="siteInfo.html">Site Data</a></li>
+        <li><a href="addReview.html">Add Review</a></li>
+        <li><a href="friends.html">Friends</a></li>
+      </ul>
+
+      <!-- Displays the URL of the website the user is currently viewing -->
+      <div class="currentSite">
+        <p id="siteInfo">Current Site:<br></p>
+        <p id="siteInfoName"></p>
+      </div>
+
+      <!-- Div that contains the form to be submitted to database -->
+      <div class="reviewForm">
+        <!-- Form is sent to a php file on the database -->
+        <form action="http://localhost/db1/script.php" method="POST" id="reviewFormID">
+          <p></p>
+          <p></p>
+          Tag your review with a metric:
+          <!-- Dropdown box for metric qualities to tag review with -->
+          <select name="dropdown">
+            <option value="Trustworthy">Trustworthy</option>
+            <option value="Writing Quality">Writing Quality</option>
+            <option value="Popularity">Popularity</option>
+            <option value="Relevance">Relevance</option>
+          </select>
+          <p></p>
+          Numberic Rating:<p></p>
+          <!-- Radio button array for user to select numeric rating for website -->
+          <label class="radio-inline"><input type="radio" name="number" value="1">1<br></label>
+          <label class="radio-inline"><input type="radio" name="number" value="2">2<br></label>
+          <label class="radio-inline"><input type="radio" name="number" value="3">3<br></label>
+          <label class="radio-inline"><input type="radio" name="number" value="4">4<br></label>
+          <label class="radio-inline"><input type="radio" name="number" value="5">5<br></label>
+          <p></p>
+          Leave a more detailed review below:<br>
+          <!-- Two text areas for users to leave detailed reviews and related links -->
+          <textarea class="form-control" rows="5" name="review" id="review" form="reviewFormID" placeholder="Leave your review here.."></textarea>
+          <p></p>
+          <textarea class="form-control" rows="2" name ="related" id="related" form="reviewFormID" placeholder="Leave any related items here.."></textarea>
+          <!-- Hidden values for sending the site name and the session name -->
+          <input type="hidden" name="siteName" id="siteName" form="reviewFormID" value="">
+          <input type="hidden" name="sessionName" id="sessionName" form="reviewFormID" value="">
+          <p></p>
+          <!-- Submit entered values to the php script -->
+          <input type="submit" value"Go" name="submit">
+        </form>
+      </div>
+</div>
+</body>
+</html>
+
+<!-- <form action="http://localhost/db1/script.php" method="POST" id="reviewFormID">
+  <input type="text" name="review" placeholder="Review"><br>
+  <input type="text" name="related" placeholder="Related"><br>
+  <input type="submit" value"Go" name="submit">
+</form> -->

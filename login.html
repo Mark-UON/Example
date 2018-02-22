@@ -1,0 +1,48 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "login.html".
+ -->
+<html>
+  <head>
+    <!-- Allow Bootstrap CSS features -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <title>Web Content Reviewer</title>
+    <!-- Create a specifically sized box for login screen boundary -->
+    <style>
+    .baseTemplate {
+      width:290px;
+      height: 400px;
+      text-align: center;
+      padding-top: 125px;
+    }
+    </style>
+</head>
+
+<body>
+  <!-- Loading of JS file that handles button listeners/communication with server -->
+  <script type="text/javascript" src="loginCheck.js"></script>
+  <div class="baseTemplate">
+
+    <!-- Form creation for user to enter username and password. Reference: https://www.w3schools.com/html/html_forms.asp -->
+    <form id="loginForm">
+      Username:
+      <input type="text" name="username" id="username">
+      <p></p>
+      Password:
+      <input type="password" name="password" id="password">
+      <p></p>
+        <!-- Login button to send details to database for password comparison -->
+      <input type="button" id="button" name="button" value="Login">
+    </form>
+
+    <p></p>
+    <!-- Signup button to send details to database for user creation -->
+    <input type="button" id="button2" name="button2" value="Sign Up">
+
+    <p id="status"></p>
+  </div>
+</body>
+</html>

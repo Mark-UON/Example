@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Allow Bootstrap CSS features -->
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <title>Web Content Reviewer</title>
+
+    <style>
+	  .baseTemplate {
+		width:290px;
+	  }
+
+    /* The navBar code was influenced and created following: https://www.w3schools.com/css/css_navbar.asp */
+    ul.navBar {
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      background-color: #505359;
+    }
+
+    ul.navBar li {
+      display: inline-block;
+    }
+
+    ul.navBar li a {
+      color: white;
+      display: inline-block;
+      padding: 15px 10px 10px 5px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    ul.navBar li a:hover {
+      color: #b7b9bc;
+    }
+    /* The navBar code was influenced and created following: https://www.w3schools.com/css/css_navbar.asp */
+
+    .currentSite {
+      font-size: 11px;
+    }
+
+	  .rating {
+      height: 50px;
+		  text-align: center;
+	  }
+
+    .reviews {
+
+    }
+
+    .reviewHeader {
+      text-align: center;
+    }
+    </style>
+
+</head>
+<!-- Loading of JS file that handles button listeners/communication with server -->
+<!-- <script type="text/javascript" src= "siteInfo.js"></script> -->
+<script type="text/javascript" src= "reviews.js"></script>
+
+<body>
+  <!-- Main div that holds all the tab's content -->
+  <div class="baseTemplate">
+
+    <!-- Navigation bar used to travel between tabs -->
+    <ul class="navBar">
+      <li><a href="siteInfo.html">Site Data</a></li>
+      <li><a href="addReview.html">Add Review</a></li>
+      <li><a href="friends.html">Friends</a></li>
+    </ul>
+
+    <!-- Display username (set in reviews.js) and give user the option to logout -->
+    <div class="identity">Logged in as:
+      <p id="username"></p>
+      <input type="button" id="logoutButton" name="logoutButton" value="Logout">
+    </div>
+
+    <!-- Displays the URL of the website the user is currently viewing -->
+    <div class="currentSite">
+      <p></p>
+      <p id="siteInfo">Current Site:<br></p>
+      <p id="siteInfoName"></p>
+    </div>
+
+    <!-- Displays the average user rating of the website -->
+    <div class="rating">
+      User Rating:<br>
+      <div id="starRating"></div>
+    </div>
+
+    <!-- Displays a list of related websites using Google's Custom Search Engine API -->
+<!--    Related Websites:<br>
+    <div id="relatedLinks"></div><br> -->
+
+
+    <!-- Drop down containing pre-defined list of quality metric tags- as well as the ability to define their own
+         Used as reference: https://www.w3schools.com/bootstrap/bootstrap_forms_inputs.asp -->
+  <!--  <div class="dropdown">
+        <select name="dropdown">
+          <option value="Trustworthy">Trustworthy</option>
+          <option value="Writing Quality">Writing Quality</option>
+          <option value="Popularity">Popularity</option>
+          <option value="Relevance">Relevance</option>
+        </select>
+    </div>    -->
+
+    <!-- List of all the reviews users have written about the relevant site -->
+    <div class="reviews">
+    <p></p>
+    User reviews:
+      <p id="reviewHandler"></p>
+    </div>
+  </div>
+</body>
+</html>
